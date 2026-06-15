@@ -9,11 +9,8 @@ st.title("🌍 국가 코드 기준 소득 수준 예측 서비스")
 st.markdown("3자리 국가 코드를 입력하면, 해당 국가가 속한 지역의 데이터를 기반으로 소득 수준을 예측합니다.")
 
 # 2. 데이터 불러오기 (기존 코드 활용)
-# ⚠️ 실습 환경에 맞게 path 변수나 파일 경로를 수정해 주세요.
 @st.cache_data # 데이터를 매번 새로 읽지 않고 캐싱하여 속도를 높입니다.
 def load_data():
-    # 예시 경로입니다. 본인의 country_codes.csv 경로에 맞게 맞춰주세요.
-    # 예: df = pd.read_csv('country_codes.csv')
     path = "./" 
     df = pd.read_csv(os.path.join(path, 'country_codes.csv'))
     return df
@@ -21,7 +18,8 @@ def load_data():
 try:
     df = load_data()
 except Exception as e:
-    st.error(class_name=f"데이터 파일을 찾을 수 없습니다. 경로를 확인해주세요. 에러: {e}")
+    # 💡 문법 에러가 날 수 있는 잘못된 옵션(class_name)을 제거했습니다.
+    st.error(f"데이터 파일을 찾을 수 없습니다. 경로를 확인해주세요. 에러: {e}")
     st.stop()
 
 # ------------------------------------------------------------------
@@ -79,14 +77,4 @@ if target_country:
     else:
         st.error(f"❌ '{target_country}'은(는) 존재하지 않는 국가 코드입니다. 대소문자나 코드를 다시 확인해 주세요.")
 
-# 1. 깃허브 코드를 내 컴퓨터로 복제 (초록색 'Code' 버튼 누르면 나오는 URL 주소 복사)
-git clone https://github.com/유저네임/저장소이름.git
-
-# 2. 다운로드된 폴더 안으로 이동
-cd 저장소이름
-
-# 3. requirements.txt를 이용해 필요한 라이브러리 자동 설치
-pip install -r requirements.txt
-
-# 4. 스트림릿 앱 실행
-streamlit run app.py
+# 🎯 문제의 원인이었던 맨 밑의 터미널 명령어(git clone 등)들을 완전히 삭제했습니다!

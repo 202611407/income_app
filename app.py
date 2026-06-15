@@ -78,3 +78,15 @@ if target_country:
         
     else:
         st.error(f"❌ '{target_country}'은(는) 존재하지 않는 국가 코드입니다. 대소문자나 코드를 다시 확인해 주세요.")
+
+# 1. 깃허브 코드를 내 컴퓨터로 복제 (초록색 'Code' 버튼 누르면 나오는 URL 주소 복사)
+git clone https://github.com/유저네임/저장소이름.git
+
+# 2. 다운로드된 폴더 안으로 이동
+cd 저장소이름
+
+# 3. requirements.txt를 이용해 필요한 라이브러리 자동 설치
+pip install -r requirements.txt
+
+# 4. 스트림릿 앱 실행
+streamlit run app.py
